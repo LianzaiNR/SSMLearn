@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lianzainr.dao.UserMapper">
+
+    <insert id="addUser" parameterType="User">
+        INSERT INTO mounster_hunter.mh_user(uID, uName)
+        VALUES (#{uID}, #{uName})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE
+        FROM mounster_hunter.mh_user
+        WHERE uID = #{uID}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update mounster_hunter.mh_user
+        set uID   = #{uID},
+            uName = #{uName}
+        where uId = #{uID};
+    </update>
+
+    <select id="queryIdUser" resultType="User">
+        select *
+        from mounster_hunter.mh_user
+        where uID = #{uID}
+    </select>
+
+    <select id="queryAllUser" resultType="User">
+        select *
+        from mounster_hunter.mh_user
+    </select>
+</mapper>
